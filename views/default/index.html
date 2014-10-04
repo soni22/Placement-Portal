@@ -1,0 +1,48 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+<div id="logo" style="background:url('/Placement_Portal/static/images/logo.png')">
+	</div>
+	<form class="search_form cf">
+        <input type="text" id="search_text" name="search_text" placeholder="Search here..."  autocomplete="off" onkeyup="getData(this.value);" />
+        <div id="ajaxresults"></div>
+        <button type="submit" onclick="search_element('','')">Search</button>
+	</form>
+	<div class="post_ad">
+        <button id="buttonid1" type="submit" onclick="redirect_post_ad()">POST AD</button>
+	</div>
+	<div class="profile">
+        <button id="buttonid2" type="submit" onclick="redirect_profile()">PROFILE</button>
+	</div>
+	
+{{if 'message' in globals():}}
+<h3>{{=message}}</h3>
+
+
+<h4>{{=T('Know the Students of IGDTU-W')}}</h4>
+<ol>
+  <li>{{=T('You are successfully running Placement Port')}}</li>
+  <li>{{=T('')}}</li>
+</ol>
+{{elif 'content' in globals():}}
+{{=content}}
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}
+
+{{block right_sidebar}}
+
+<h6>{{=T("Right Side")}}</h6>
+<ul>
+ 
+  <li></li>
+
+</ul>
+
+<style>
+
+
+</style>
+
+
+{{end}}
